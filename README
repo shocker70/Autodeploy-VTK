@@ -1,6 +1,30 @@
 
 
-Add file varibales.tf in PATH variable.
-EG: /home/vagrant/variables/variable.tf   $PATH="/bin/:/home/vagrant/variables/"
+Automated deployment of Ngix server with Terraform. 
+
+This will generate the following network structure
+
++----- VPC --- I.Gateway -----------+
+| 10.0.0.0/16	
+| 	 +---Subnet--+	
+|	 10.0.1.0/24
+|		
+|	        +---- ELB----+
+|		  [ IP   ]
+|		+---- EC2 ---+
+|		  [  IP  ]
+|
+|
+|
++----------------------------------+
+
+VPC [ SUBNET [ ELB + EC2 ] ]
+
+At the moment this will include only 1 EC2 instance.
+
+
+IMPORTANT:
+1. To make this work you need to modify   { example_variables.modify } -> { [yourchoice].tfvars}
+2. Adjust variables inside to make it work. ( need AWS account /* freetier is enought */ )
 
 
