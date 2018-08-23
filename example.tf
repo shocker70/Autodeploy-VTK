@@ -2,7 +2,7 @@
 #
 # IMPORTANT: Remember to modify file [variables.tf].
 #
-
+#
 
 # VPC to launch instances + subnets into.
 resource "aws_vpc" "default" {
