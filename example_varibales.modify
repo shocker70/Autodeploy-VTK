@@ -1,0 +1,41 @@
+#
+# This file is how it should look ur varibles.tf
+#
+
+Variables in my variable.tf file:
+
+#
+# Access Key and Secret key to be able to connect to AWS.
+#
+
+variable "access_key" {
+        default = ""
+}
+variable "secret_key" {
+        default = ""
+}
+
+
+#
+# Create a Key in AWS to be able to connect to the EC2 instanes deployed, it will autmatically add
+# the public key to ensure that you can connect via ssh to the instance.
+#
+
+variable "key_name" {
+        default = ""
+}
+
+
+variable "private_key_path" {
+        default = ""
+}
+
+
+
+#
+# Choose your region
+#
+
+variable "region" {
+	default=""
+}
