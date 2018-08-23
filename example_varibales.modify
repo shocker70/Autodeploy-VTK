@@ -33,8 +33,8 @@ variable "private_key_path" {
 
 
 #
-# Choose your region
-#
+# Choose your region, actually can choose between :  eu-west-3   /   us-west-2
+# 
 
 variable "region" {
 	default=""
