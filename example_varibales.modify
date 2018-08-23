@@ -2,7 +2,7 @@
 # This file is how it should look ur varibles.tf
 #
 
-Variables in my variable.tf file:
+#Variables in my variable.tf file:
 
 #
 # Access Key and Secret key to be able to connect to AWS.
