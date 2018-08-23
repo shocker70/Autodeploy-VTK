@@ -1,0 +1,6 @@
+
+
+Add file varibales.tf in PATH variable.
+EG: /home/vagrant/variables/variable.tf   $PATH="/bin/:/home/vagrant/variables/"
+
+
