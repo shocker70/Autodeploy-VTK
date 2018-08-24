@@ -149,9 +149,9 @@ resource "aws_instance" "web" {
     ]
   }
   
-  provisioner "local-exec" {
-  	command = "echo ${aws_elb.web.dns_name} > dns_address.txt"
-  }
+ # provisioner "local-exec" {
+ # 	command = "echo ${aws_elb.web.dns_name} > dns_address.txt"
+ #}
   
 }
 
