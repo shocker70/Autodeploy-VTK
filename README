@@ -4,21 +4,23 @@ Automated deployment of Ngix server with Terraform.
 
 This will generate the following network structure
 
-+----- VPC --- I.Gateway -----------+
++----- VPC --- I.Gateway ----------------+
 | 10.0.0.0/16	
-| 	 +---Subnet--+	
-|	 10.0.1.0/24
-|		
-|	        +---- ELB----+
-|		  [ IP   ]
-|		+---- EC2 ---+
-|		  [  IP  ]
-|
-|
-|
-+----------------------------------+
+|	
+| 	 +------------ Subnet ------------+	
+|	 |	10.0.1.0/24
+|	 |	
+|	 |       +------- ELB --------+
+|	 |	  	 | 	   [ web, web1 ]	  
+|	 |		 |	  +---- EC2 ---+ 	  
+|	 |	  	 |	      [ web ]		  
+|	 |		 |	  +---- EC2 ---+    
+|	 |		 |        [ web1] 	      
+|	 |		 +--------------------+
+|    +--------------------------------+ 
++----------------------------------------+
 
-VPC [ SUBNET [ ELB + EC2 ] ]
+VPC [ SUBNET [ ELB {WEB, WEB1}] ]
 
 At the moment this will include only 1 EC2 instance.
 

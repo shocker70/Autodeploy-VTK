@@ -96,7 +96,7 @@ resource "aws_elb" "web" {
 
   subnets         = ["${aws_subnet.default.id}"]
   security_groups = ["${aws_security_group.elb.id}"]
-  instances       = ["${aws_instance.web.id}"]
+  instances       = ["${aws_instance.web.id}","${aws_instance.web1.id}"]
 
   listener {
     instance_port     = 80
@@ -152,5 +152,33 @@ resource "aws_instance" "web" {
 
 }
 
+# We use ubuntu AMI, by default user: ubuntu
+resource "aws_instance" "web1" {
+   connection {
+     user = "ubuntu"
+	 private_key = "${file(var.private_key_path)}"
+   }
+  
+  ami           = "${lookup(var.amis, var.region)}"
+  instance_type = "t2.micro"
+  
+  # SSH keypair created above.
+  key_name = "${aws_key_pair.auth.id}"
+  
+  # Allow HTTP and SSH access
+  vpc_security_group_ids = ["${aws_security_group.default.id}"]
+  
+  subnet_id = "${aws_subnet.default.id}"
+  
+  provisioner "remote-exec" {
+    inline = [
+      "sudo apt-get -y update",
+      "sudo apt-get -y install nginx",
+      "sudo service nginx start",
+    ]
+  }
+  
+
+}
 
 
