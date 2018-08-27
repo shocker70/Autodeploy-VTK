@@ -89,7 +89,8 @@ resource "aws_key_pair" "auth" {
   public_key = "${file(var.public_key_path)}"
 }
 
-# We create the ELB load balancer in subnet.1 :
+# We create the ELB load balancer 
+# for subnet.1 - instance 1, and open port 80 
 resource "aws_elb" "web" {
   name = "terraform-example-elb"
 
@@ -127,7 +128,7 @@ resource "aws_instance" "web" {
    connection {
      user = "ubuntu"
 	 private_key = "${file(var.private_key_path)}"
-  }
+   }
   
   ami           = "${lookup(var.amis, var.region)}"
   instance_type = "t2.micro"
