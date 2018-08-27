@@ -2,7 +2,6 @@
 #
 # IMPORTANT: Remember to modify file [variables.tf].
 #
-#
 
 # VPC to launch instances + subnets into.
 resource "aws_vpc" "default" {
@@ -149,10 +148,7 @@ resource "aws_instance" "web" {
     ]
   }
   
- # provisioner "local-exec" {
- # 	command = "echo ${aws_elb.web.dns_name} > dns_address.txt"
- #}
-  
+
 }
 
 
